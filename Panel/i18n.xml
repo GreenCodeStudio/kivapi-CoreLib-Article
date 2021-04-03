@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <node name="Header">
+        <value lang="en">Articles</value>
+        <value lang="pl">Artykuły</value>
+    </node>
+    <node name="Fields">
+        <node name="id">
+            <value lang="en">ID</value>
+            <value lang="pl">ID</value>
+        </node>
+        <node name="title">
+            <value lang="en">Title</value>
+            <value lang="pl">Tytuł</value>
+        </node>
+        <node name="content">
+            <value lang="en">Content</value>
+            <value lang="pl">Treść</value>
+        </node>
+    </node>
+</root>
