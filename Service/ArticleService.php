@@ -24,7 +24,7 @@ class ArticleService
 
     public function insert($data)
     {
-        $id = $this->defaultDB->insert(['stamp'=>new \DateTime()]);
+        $id = $this->defaultDB->insert(['stamp' => new \DateTime()]);
         $filtered = $this->filterData($data);
         $filtered['is_active'] = true;
         $this->defaultDB->insertVersion($id, $filtered);
@@ -37,7 +37,7 @@ class ArticleService
         $ret = [];
         $ret['title'] = $data->title;
         $ret['content'] = $data->content;
-        $ret['content_type'] = $data->content_type;
+        $ret['content_type'] = $data->content_type ?? 'text/plain';
         $ret['stamp'] = new \DateTime();
         return $ret;
     }
