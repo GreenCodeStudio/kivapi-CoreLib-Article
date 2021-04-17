@@ -2,7 +2,7 @@
     <?php
     foreach ($this->list as $article) {
         ?>
-        <a href="" class="articleWrapper">
+        <a href="<?=!empty($this->articleUrl)?($this->articleUrl->path.'?id='.$article->id):''?>" class="articleWrapper">
             <article>
                 <h1><?= htmlspecialchars($article->title) ?></h1>
                 <div class="date"><?= $article->stamp ?></div>
