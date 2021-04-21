@@ -16,7 +16,7 @@ class Controller extends ComponentController
     public static function DefinedParameters()
     {
         return [
-            (object)['name' => 'id', 'type' => 'int']
+            'id' => (object)['Title' => 'Id', 'type' => 'int', 'canFromQuery' => true]
         ];
     }
 
