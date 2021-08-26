@@ -10,7 +10,7 @@ class ArticleRepository extends Repository
 {
     public function getCurrentVersion(int $articleId)
     {
-        $version = DB::get("SELECT * FROM article a JOIN article_version v ON v.article_id = a.id AND v.is_active WHERE a.id = ? ORDER BY v.stamp DESC LIMIT 1", [$articleId])[0] ?? null;
+        $version = DB::get("SELECT *, a.stamp as oryginalStamp FROM article a JOIN article_version v ON v.article_id = a.id AND v.is_active WHERE a.id = ? ORDER BY v.stamp DESC LIMIT 1", [$articleId])[0] ?? null;
         return $version;
     }
 

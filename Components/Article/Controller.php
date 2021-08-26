@@ -22,15 +22,17 @@ class Controller extends ComponentController
 
     public function loadView()
     {
-        include __DIR__.'/View.php';
+        include __DIR__ . '/View.php';
     }
 
-    private function getContentHtml()
+    protected function getContentHtml()
     {
         if ($this->version->content_type == 'text/plain')
-            return '<p>'.str_replace('\r\n', '<br>', str_replace('\r\n\r\n', '</p><p>', htmlspecialchars($this->version->content))).'</p>';
+            return '<p>' . str_replace('\r\n', '<br>', str_replace('\r\n\r\n', '</p><p>', htmlspecialchars($this->version->content))) . '</p>';
         else if ($this->version->content_type == 'text/pmeditor')
             return $this->version->content;//todo tmp
+        else if ($this->version->content_type == 'text/html')
+            return $this->version->content;
         else
             throw new \Exception("Not recognized format");
     }
