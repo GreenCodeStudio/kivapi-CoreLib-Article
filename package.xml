@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<package>
+    <vendor>CoreLib</vendor>
+    <name>Article</name>
+    <description>
+        Basic package for making blogs or news sites.
+    </description>
+    <git>https://github.com/GreenCodeStudio/kivapi-CoreLib-Article</git>
+    <version>1.0.0</version>
+</package>
