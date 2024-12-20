@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
     <element>
-        <link>/panel/Article</link>
+        <link>/panel/Package/CoreLib/Article/Article</link>
         <title>Articles</title>
     </element>
 </menu>
