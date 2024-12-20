@@ -11,6 +11,7 @@ import {Document, ParseXmlString} from "pmeditor-core"
 import {Editor} from "pmeditor-editor"
 import {t} from "../../i18n.xml"
 import {t as TCommon} from "../../../../../../Core/Panel/Common/i18n.xml"
+import ContentValueEdit from "../../../../../../Core/Panel/Page/Js/ValueEdit/ContentValueEdit";
 
 
 export class index {
@@ -73,14 +74,15 @@ export class add {
         this.data = data;
 
         let form = new FormManager(this.page.querySelector('form'));
-        //form.loadSelects(this.data.selects);
-        const content = new Document();
-        const editor = new Editor(content);
-        page.querySelector('.editor-container').append(editor.html);
+        console.log('content')
+       const contentEdit=new ContentValueEdit({}, {});
+        contentEdit.draw();
+        page.querySelector('.editor-container').append(contentEdit);
 
         form.submit = async data => {
-            data.content_type = 'text/pmeditor';
-            data.content = content.serialize();
+            const content=contentEdit.collectParameters();
+            data.content_type = content.value.mime;
+            data.content = content.value.text;
             await AjaxPanel.Article.insert(data);
             PanelPageManager.goto('/panel/Article');
         }
